@@ -1,12 +1,8 @@
 package kz.com.myapplication34.data.database
 
 import androidx.room.Database
-import androidx.room.DatabaseConfiguration
-import androidx.room.InvalidationTracker
 import androidx.room.RoomDatabase
-import androidx.room.TypeConverters
-import androidx.sqlite.db.SupportSQLiteOpenHelper
-import kz.com.myapplication34.data.Entity.LocationEntity
+import kz.com.myapplication34.data.entity.LocationEntity
 import kz.com.myapplication34.data.dao.LocationDao
 
 @Database(

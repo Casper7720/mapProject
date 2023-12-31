@@ -1,9 +1,9 @@
-package kz.com.myapplication34.data.Entity
+package kz.com.myapplication34.data.entity
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import kz.com.myapplication34.data.Entity.LocationEntity.Companion.TABLE_NAME
+import kz.com.myapplication34.data.entity.LocationEntity.Companion.TABLE_NAME
 
 @Entity(tableName = TABLE_NAME)
 data class LocationEntity(

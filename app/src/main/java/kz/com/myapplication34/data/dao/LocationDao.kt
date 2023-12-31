@@ -4,7 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import kz.com.myapplication34.data.Entity.LocationEntity
+import kz.com.myapplication34.data.entity.LocationEntity
 
 @Dao
 interface LocationDao {

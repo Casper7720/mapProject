@@ -2,21 +2,16 @@ package kz.com.myapplication34.presentation.screens.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
 import androidx.activity.viewModels
-import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collect
 import kz.com.mtapplication34.databinding.ActivityMainBinding
-import kz.com.myapplication34.data.Entity.LocationEntity
+import kz.com.myapplication34.data.entity.LocationEntity
 import ru.dgis.sdk.*
 import ru.dgis.sdk.map.*
 import ru.dgis.sdk.map.Map
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity() {
+class метоMainActivity : AppCompatActivity() {
 
     lateinit var sdkContext: Context
     lateinit var mapSource: MyLocationMapObjectSource

@@ -1,6 +1,6 @@
 package kz.com.myapplication34.data.repository.locationRepository
 
-import kz.com.myapplication34.data.Entity.LocationEntity
+import kz.com.myapplication34.data.entity.LocationEntity
 import kz.com.myapplication34.data.database.AppDataBase
 import javax.inject.Inject
 
