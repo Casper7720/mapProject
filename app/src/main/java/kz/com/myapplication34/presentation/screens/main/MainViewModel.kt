@@ -25,6 +25,7 @@ class MainViewModel @Inject constructor(
     fun addLocation(locationEntity: LocationEntity){
         viewModelScope.launch(Dispatchers.IO) {
             addLocationUseCase.invoke(locationEntity)
+            getAllLocations()
         }
     }
 

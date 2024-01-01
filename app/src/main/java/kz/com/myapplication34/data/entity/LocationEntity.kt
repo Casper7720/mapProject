@@ -23,6 +23,10 @@ data class LocationEntity(
     @ColumnInfo(name = "northEastPointLongitude")
     val northEastPointLongitude: Double,
 ){
+
+    override fun toString(): String {
+        return "southWestPointLatitude = $southWestPointLatitude, southWestPointLongitude = $southWestPointLongitude, northEastPointLatitude = $northEastPointLatitude , northEastPointLongitude = $northEastPointLongitude"
+    }
     companion object{
         const val TABLE_NAME = "LocationEntity"
     }

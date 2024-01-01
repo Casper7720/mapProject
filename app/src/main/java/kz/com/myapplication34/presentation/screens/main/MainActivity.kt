@@ -2,8 +2,15 @@ package kz.com.myapplication34.presentation.screens.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+import androidx.lifecycle.withStarted
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 import kz.com.mtapplication34.databinding.ActivityMainBinding
 import kz.com.myapplication34.data.entity.LocationEntity
 import ru.dgis.sdk.*
@@ -11,7 +18,7 @@ import ru.dgis.sdk.map.*
 import ru.dgis.sdk.map.Map
 
 @AndroidEntryPoint
-class метоMainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
 
     lateinit var sdkContext: Context
     lateinit var mapSource: MyLocationMapObjectSource
@@ -38,6 +45,8 @@ class метоMainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        initSubscribers()
+
         binding.mapView.also {
             it.getMapAsync { map ->
                 onMapReady(map)
@@ -46,6 +55,18 @@ class метоMainActivity : AppCompatActivity() {
         }
     }
 
+
+    private fun initSubscribers(){
+        lifecycleScope.launch {
+            repeatOnLifecycle(state = Lifecycle.State.STARTED) {
+                viewModel.allLocations.collect{list ->
+                    if(list.isNotEmpty()){
+                        Toast.makeText(this@MainActivity, "Последняя добавленная локация: ${list.last()}", Toast.LENGTH_LONG).show()
+                    }
+                }
+            }
+        }
+    }
 
     override fun onDestroy() {
         super.onDestroy()
